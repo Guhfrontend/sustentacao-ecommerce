@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: sustentacaoEcommerce
+  data:
+    mongodb:
+      uri: mongodb://root:root@localhost:27017/admin
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui

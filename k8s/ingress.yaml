@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sap-repository
+  namespace: vivo
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  rules:
+    - host: api.sap.gustavo.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sap-repository
+                port:
+                  number: 8000
+  tls:
+    - hosts:
+        - api.sap.gustavo.com.br
+      secretName: api-sap-dev-tls

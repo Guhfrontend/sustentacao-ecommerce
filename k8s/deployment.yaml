@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sap-repository
+  namespace: di3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sap-repository
+  template:
+    metadata:
+      labels:
+        app: sap-repository
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: sap-repository
+          image: ghcr.io/Guhfrontend/sap-repository:latest
+          envFrom:
+            - secretRef:
+                name: sap-repository-secrets
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /status
+              port: 8000
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 15
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /status
+              port: 8000
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 15
+            failureThreshold: 3
