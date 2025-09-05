@@ -85,6 +85,10 @@ Os serviços podem levar alguns minutos para inicializar completamente.
 4. Importe dashboards ou crie seus próprios
 
 Dashboards recomendados: 4701 (Source do Prometheus)
+
+<img width="1237" height="591" alt="image" src="https://github.com/user-attachments/assets/7044a2dd-cb6a-47f7-9e41-731678a38e91" />
+
+
 ## 🐛 Solução de Problemas
 
 ### Container do Prometheus não inicia
@@ -152,15 +156,3 @@ Para desenvolvimento local sem Docker:
 - `GET /api/tickets/user/{userId}` - Lista tickets por usuário
 - `POST /api/tickets` - Cria um novo ticket
 - `PUT /api/tickets/{id}` - Atualiza um ticket
-
-## 🤝 Contribuição
-
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
