@@ -63,6 +63,7 @@ public class BasicSecurityConfig {
                         .requestMatchers("/users/cadastrar").permitAll()
                         .requestMatchers("/error/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/mock/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .anyRequest().authenticated())
                 .authenticationProvider(authenticationProvider())

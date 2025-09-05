@@ -19,3 +19,7 @@ management:
   endpoint:
     health:
       show-details: always
+
+hybris:
+  api:
+    url: http://localhost:8080/mock/sap-hybris
